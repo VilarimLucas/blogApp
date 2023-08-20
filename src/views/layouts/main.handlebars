@@ -2,50 +2,90 @@
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlogApp</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlogApp</title>
 
 
-    <!-- BOOTSTRAP STYLE -->
-    <link rel="stylesheet" href="/bootstrapStyle/bootstrap.min.css">
+  <!-- BOOTSTRAP STYLE -->
+  <link rel="stylesheet" href="/bootstrapStyle/bootstrap.min.css">
 
-    <!-- BOOTSTRAP ICONS -->
-    <link rel="stylesheet" href="/bootstrapIcons/bootstrap-icons.css" -->
+  <!-- BOOTSTRAP ICONS -->
+  <link rel="stylesheet" href="/bootstrapIcons/bootstrap-icons.css" -->
 
-    <!-- BOOTSTRAP SCRIPT -->
-    <script src="/bootstrapScript/bootstrap.bundle.min.js"></script>
-
-
-    <!-- Favicon  -->
-    <link rel="icon" href="/images/core-img/favicon.ico">
-
-    <!-- Core Style CSS -->
-    <link rel="stylesheet" href="/style/core-style.css">
-    <link rel="stylesheet" href="/style/style.css">
-
-    <!-- Responsive CSS -->
-    <link href="/style/responsive.css" rel="stylesheet">
+  <!-- BOOTSTRAP SCRIPT -->
+  <script src="/bootstrapScript/bootstrap.bundle.min.js"></script>
 
 
-    <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="/script/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="/script/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="/script/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="/script/plugins.js"></script>
-    <!-- Active js -->
-    <script src="/script/active.js"></script>
-    <script src="/script/script.js"></script>
+  <!-- Favicon  -->
+  <link rel="icon" href="/images/core-img/favicon.ico">
+  {{#if dashboard}}
+
+  <!-- themify-icons line icon -->
+  <link rel="stylesheet" type="text/css" href="/iconDashboard/themify-icons/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="/iconDashboard/font-awesome/css/font-awesome.min.css">
+  <!-- ico font -->
+  <link rel="stylesheet" type="text/css" href="/iconDashboard/icofont/css/icofont.css">
+  <!-- Style.css -->
+  <link rel="stylesheet" type="text/css" href="/style/dashboardStyle/style.css">
+  <link rel="stylesheet" type="text/css" href="/style/dashboardStyle/jquery.mCustomScrollbar.css">
+
+
+  <!-- Required Jquery -->
+  <script type="text/javascript" src="/script/jsDashboard/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/script/jsDashboard/jquery-ui/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="/script/jsDashboard/popper.js/popper.min.js"></script>
+  <script type="text/javascript" src="/script/jsDashboard/bootstrap/js/bootstrap.min.js"></script>
+  <!-- jquery slimscroll js -->
+  <script type="text/javascript" src="/script/jsDashboard/jquery-slimscroll/jquery.slimscroll.js"></script>
+  <!-- modernizr js -->
+  <script type="text/javascript" src="/script/jsDashboard/modernizr/modernizr.js"></script>
+  <!-- am chart -->
+  <script src="/pagesDashboard/widget/amchart/amcharts.min.js"></script>
+  <script src="/pagesDashboard/widget/amchart/serial.min.js"></script>
+  <!-- Chart js -->
+  <script type="text/javascript" src="/script/jsDashboard/chart.js/Chart.js"></script>
+  <!-- Todo js -->
+  <script type="text/javascript " src="/pagesDashboard/todo/todo.js "></script>
+  <!-- Custom js -->
+  <script type="text/javascript" src="/pagesDashboard/dashboard/custom-dashboard.min.js"></script>
+  <script type="text/javascript" src="/script/jsDashboard/script.js"></script>
+  <script type="text/javascript " src="/script/jsDashboard/SmoothScroll.js"></script>
+  <script src="/script/jsDashboard/pcoded.min.js"></script>
+  <script src="/script/jsDashboard/vartical-demo.js"></script>
+  <script src="/script/jsDashboard/jquery.mCustomScrollbar.concat.min.js"></script>
+
+  {{else}}
+  <!-- Core Style CSS -->
+  <link rel="stylesheet" href="/style/core-style.css">
+  <link rel="stylesheet" href="/style/style.css">
+
+  <!-- Responsive CSS -->
+  <link href="/style/responsive.css" rel="stylesheet">
+
+
+  <!-- jQuery (Necessary for All JavaScript Plugins) -->
+  <script src="/script/jquery/jquery-2.2.4.min.js"></script>
+  <!-- Popper js -->
+  <script src="/script/popper.min.js"></script>
+  <!-- Bootstrap js -->
+  <script src="/script/bootstrap.min.js"></script>
+  <!-- Plugins js -->
+  <script src="/script/plugins.js"></script>
+  <!-- Active js -->
+  <script src="/script/active.js"></script>
+  <script src="/script/script.js"></script>
+
+
+
+  {{/if}}
 
 </head>
 
 <body>
-    {{_msg}}
-    {{{body}}}
+  {{_msg}}
+  {{{body}}}
 </body>
 
 </html>

@@ -56,6 +56,9 @@ app.use('/bootstrapIcons', express.static('public/bootstrap/icons/font'));
 app.use('/style', express.static('public/css'));
 app.use('/script', express.static('public/js'));
 
+app.use('/iconDashboard', express.static('public/iconDashboard'));
+app.use('/pagesDashboard', express.static('public/pagesDashboard'));
+
 app.use('/images', express.static('public/img'));
 app.use('/fonts', express.static('public/fonts'));
 
