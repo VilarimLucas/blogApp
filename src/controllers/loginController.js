@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 const mongoose = require("mongoose");
 
 //vamos carregar nosso modelo 
 require("../models/logins");
 const Logins = mongoose.model("logins");
 
-router.post('/login/add', (req, res) => {
+router.post('/login/add', async(req, res) => {
 
     var erros = [];
     if (!req.body.username || typeof req.body.username == undefined || req.body.username == null) {
@@ -21,10 +22,13 @@ router.post('/login/add', (req, res) => {
     if (erros.length > 0) {
         res.render("admin/login", { erros: erros });
     } else {
+
+        const hashedPassword = await bcrypt.hash(req.body.password, 10); // Hash the password
+
         const newLogin = {
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password
+            password: hashedPassword
         };
 
         new Logins(newLogin).save().then(() => {
@@ -37,7 +41,28 @@ router.post('/login/add', (req, res) => {
     }
 });
 
+router.post('/login/auth', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await Logins.findOne({ email: email });
 
+        if (user) {
+            const isPasswordValid = await bcrypt.compare(password, user.password);
+
+            if (isPasswordValid) {
+                req.session.id_login = user._id; // Store user ID in the session
+                res.redirect('/dashboard'); // Redirect to the dashboard after successful login
+            } else {
+                res.send('Credenciais inválidas');
+            }
+        } else {
+            res.send('Credenciais inválidas');
+        }
+    } catch (error) {
+        console.error('Error logging in:', error);
+        res.send('Houve um erro ao fazer o login');
+    }
+});
 
 /*______ Fim das rotas das tarefas ___________ */
 module.exports = router;
