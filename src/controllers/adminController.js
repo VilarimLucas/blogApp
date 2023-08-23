@@ -3,6 +3,14 @@ const router = express.Router();
 
 const mongoose = require("mongoose");
 
+//vamos carregar nosso modelo 
+require("../models/category");
+const Categorys = mongoose.model("categorys");
+
+//vamos carregar nosso modelo 
+require("../models/autor");
+const Autors = mongoose.model("autors");
+
 
 router.get("/", (req, res) => {
     res.render("admin/index", {dashboard:false});
@@ -31,8 +39,23 @@ router.get("/dashboard", (req, res) => {
 router.get("/create_category", (req, res) => {
     res.render("dashboard/category/cadCategory", {dashboard:true});
 });
+
 router.get("/list_category", (req, res) => {
-    res.render("dashboard/category/listCategory", {dashboard:true});
+
+    Categorys.find().lean().then((category) => {
+        res.render("dashboard/category/listCategory", { dashboard:true, category: category });
+    });
+});
+
+// AUTOR
+router.get("/create_autor", (req, res) => {
+    res.render("dashboard/autor/cadAutor", {dashboard:true});
+});
+
+router.get("/list_autor", (req, res) => {
+    Autors.find().lean().then((autor) => {
+        res.render("dashboard/autor/listAutor", { dashboard:true, autor: autor });
+    });
 });
 
 //////////////////// FIM DASHBOARD ///////////////////////////////

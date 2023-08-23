@@ -1,0 +1,106 @@
+
+<!-- Pre-loader start -->
+<div class="theme-loader">
+    <div class="loader-track">
+        <div class="loader-bar"></div>
+    </div>
+</div>
+<!-- Pre-loader end -->
+<div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+
+        {{>_navbarDashboard}}
+
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                {{>_sidebarDashboard}}
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+
+
+                        <!-- Main-body start -->
+                        <div class="main-body">
+                            <div class="page-wrapper">
+
+                                {{#each erros}}
+                                <div class="alert alert-danger">{{texto}}</div>
+                                {{else}}
+                                {{/each}}
+
+                                <!-- Page-header start -->
+                                <div class="page-header card">
+                                    <div class="card-block">
+                                        <h5 class="m-b-10">CADASTRO DE AUTORES</h5>
+                                        <p class="text-muted m-b-10">lorem ipsum dolor sit amet, consectetur adipisicing
+                                            elit</p>
+                                        <ul class="breadcrumb-title b-t-default p-t-10">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="#!">Basic Componenets</a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="#!">Basic Form Inputs</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Page-header end -->
+
+
+                                <!-- Basic Form Inputs card start -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>CADASTRAR AUTORES</h5>
+                                        {{!-- <span>Add class of <code>.form-control</code> with
+                                            <code>&lt;input&gt;</code> tag</span> --}}
+                                        <div class="card-header-right"><i class="icofont icofont-spinner-alt-5"></i>
+                                        </div>
+
+                                        <div class="card-header-right">
+                                            <i class="icofont icofont-spinner-alt-5"></i>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-block">
+                                        {{!-- <h4 class="sub-title">Basic Inputs</h4> --}}
+                                        <form action="rota_autor/autor/add" method="POST">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Nome da autor</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" name="nameAutor"
+                                                        id="nameAutor"
+                                                        placeholder="Digite o nome do autor de Notícias" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Formação</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" name="training" id="training"
+                                                        placeholder="Descreva aqui a formação do autor"
+                                                        required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Cargo</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" name="profession" id="profession"
+                                                        placeholder="Descreva aqui a profissão do autor" required />
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-outline-secondary">cadastrar
+                                                autor</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <!-- Basic Form Inputs card end -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

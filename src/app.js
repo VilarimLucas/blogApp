@@ -8,6 +8,7 @@ const app = express();
 const admin = require("./controllers/adminController");
 const rota_login =require('./controllers/loginController');
 const rota_category =require('./controllers/categoryController');
+const rota_autor =require('./controllers/autorController');
 
 
 //Módulo padrão do node para manipular diretórios e pastas
@@ -69,6 +70,7 @@ app.use('/fonts', express.static('public/fonts'));
 app.use("/", admin);
 app.use("/rota_login", rota_login);
 app.use("/rota_category", rota_category);
+app.use("/rota_autor", rota_autor);
 
 const PORT = 8081;
 app.listen(PORT, () => {
