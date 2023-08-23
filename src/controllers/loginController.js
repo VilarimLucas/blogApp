@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 require("../models/logins");
 const Logins = mongoose.model("logins");
 
-router.post('/login/add', async(req, res) => {
+router.post('/login/add', async (req, res) => {
 
     var erros = [];
     if (!req.body.username || typeof req.body.username == undefined || req.body.username == null) {
@@ -62,6 +62,15 @@ router.post('/login/auth', async (req, res) => {
         console.error('Error logging in:', error);
         res.send('Houve um erro ao fazer o login');
     }
+});
+
+router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Error logging out:', err);
+        }
+        res.redirect('/login');
+    });
 });
 
 /*______ Fim das rotas das tarefas ___________ */

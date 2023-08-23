@@ -20,8 +20,22 @@ router.get("/login", (req, res) => {
     res.render("admin/login", {dashboard:false});
 });
 
+
+///////////////////////// DASHBOARD ////////////////////////////////
+
 router.get("/dashboard", (req, res) => {
     res.render("dashboard/index", {dashboard:true});
 });
+
+// CATEGORY
+router.get("/create_category", (req, res) => {
+    res.render("dashboard/category/cadCategory", {dashboard:true});
+});
+router.get("/list_category", (req, res) => {
+    res.render("dashboard/category/listCategory", {dashboard:true});
+});
+
+//////////////////// FIM DASHBOARD ///////////////////////////////
+
 
 module.exports = router;
