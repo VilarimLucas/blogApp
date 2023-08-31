@@ -1,0 +1,156 @@
+{{!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+
+<script>
+    tinymce.init({
+        selector: '#textPost', // O ID do textarea onde você deseja que o editor seja exibido
+        plugins: 'link image code', // Plugins que você deseja incluir (link, imagem e código)
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code', // Itens da barra de ferramentas
+        height: 300 // Altura do editor
+    });
+</script> --}}
+
+
+{{!-- FIM JS --}}
+
+
+
+<!-- Pre-loader start -->
+<div class="theme-loader">
+    <div class="loader-track">
+        <div class="loader-bar"></div>
+    </div>
+</div>
+<!-- Pre-loader end -->
+
+
+<div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+        {{>_navbarDashboard}}
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                {{>_sidebarDashboard}}
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+                        <!-- Main-body start -->
+                        <div class="main-body">
+                            <div class="page-wrapper">
+
+                                {{#each erros}}
+                                <div class="alert alert-danger">{{texto}}</div>
+                                {{else}}
+                                {{/each}}
+                                <!-- Page-header start -->
+                                <div class="page-header card">
+                                    <div class="card-block">
+                                        <h5 class="m-b-10">CADASTRO DE POST</h5>
+                                        <p class="text-muted m-b-10">lorem ipsum dolor sit amet, consectetur adipisicing
+                                            elit</p>
+                                        <ul class="breadcrumb-title b-t-default p-t-10">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="#!">Basic Componenets</a></li>
+                                            <li class="breadcrumb-item"><a href="#!">Basic Form Inputs</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Page-header end -->
+
+                                <!-- Basic Form Inputs card start -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>CADASTRAR POST</h5>
+                                        {{!-- <span>Add class of <code>.form-control</code> with
+                                            <code>&lt;input&gt;</code> tag</span> --}}
+                                        <div class="card-header-right"><i class="icofont icofont-spinner-alt-5"></i>
+                                        </div>
+                                        <div class="card-header-right">
+                                            <i class="icofont icofont-spinner-alt-5"></i>
+                                        </div>
+                                    </div>
+                                    <div class="card-block">
+                                        {{!-- <h4 class="sub-title">Basic Inputs</h4> --}}
+                                        <form action="rota_post/post/add" method="POST">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Nome da Categoria</label>
+                                                <div class="col-sm-10">
+                                                    <select name="select" class="form-control form-select"
+                                                        name="category" id="category">
+                                                        {{#each category}}
+                                                        <option value="{{_id}}">{{nameCategory}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">AUTOR</label>
+                                                <div class="col-sm-10">
+                                                    <select name="select" class="form-control form-select" name="author"
+                                                        id="author">
+                                                        {{#each autor}}
+                                                        <option value="{{_id}}">{{nameAutor}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Tìtulo</label>
+                                                <div class="col-sm-10">
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" name="title" id="title"
+                                                            placeholder="Digite um título para Postagem" required />
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Data do Post</label>
+                                                <div class="col-sm-10">
+                                                    <div class="col-sm-10">
+                                                        <input type="date" class="form-control" name="date" id="date"
+                                                            required />
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Imagem</label>
+                                                <div class="col-sm-10">
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" name="image" id="image"
+                                                            placeholder="Selecione uma Imagem para o usuário"
+                                                            required />
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control"
+                                                        placeholder="Texto do post vai aqui" name="textPost"
+                                                        id="textPost" required></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <button type="submit" class="btn btn-outline-secondary">cadastrar
+                                                    Post</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- Basic Form Inputs card end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

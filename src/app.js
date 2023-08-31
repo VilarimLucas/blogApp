@@ -9,6 +9,7 @@ const admin = require("./controllers/adminController");
 const rota_login =require('./controllers/loginController');
 const rota_category =require('./controllers/categoryController');
 const rota_autor =require('./controllers/autorController');
+const rota_post =require('./controllers/postController');
 
 
 //Módulo padrão do node para manipular diretórios e pastas
@@ -71,6 +72,7 @@ app.use("/", admin);
 app.use("/rota_login", rota_login);
 app.use("/rota_category", rota_category);
 app.use("/rota_autor", rota_autor);
+app.use("/rota_post", rota_post);
 
 const PORT = 8081;
 app.listen(PORT, () => {

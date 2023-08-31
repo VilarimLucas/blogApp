@@ -11,6 +11,10 @@ const Categorys = mongoose.model("categorys");
 require("../models/autor");
 const Autors = mongoose.model("autors");
 
+//vamos carregar nosso modelo 
+require("../models/post");
+const Posts = mongoose.model("autors");
+
 
 router.get("/", (req, res) => {
     res.render("admin/index", {dashboard:false});
@@ -57,6 +61,22 @@ router.get("/list_autor", (req, res) => {
         res.render("dashboard/autor/listAutor", { dashboard:true, autor: autor });
     });
 });
+
+// POST
+router.get("/create_post", (req, res) => {
+    Autors.find().lean().then((autor) => {
+        Categorys.find().lean().then((category) => {
+            res.render("dashboard/post/cadPost", {dashboard:true, autor: autor, category: category});
+        });
+    });
+});
+
+router.get("/list_post", (req, res) => {
+    Posts.find().lean().then((post) => {
+        res.render("dashboard/post/listPost", { dashboard:true, post: post });
+    });
+});
+
 
 //////////////////// FIM DASHBOARD ///////////////////////////////
 
