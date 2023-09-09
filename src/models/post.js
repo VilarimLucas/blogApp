@@ -1,10 +1,8 @@
+require('./db');
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Importar os modelos de Category e Autor
-require('./db'); // Certifique-se de que isso está apontando para o arquivo correto
-
-// Esquema para o modelo de Post
 const Post = new Schema({
     title: {
         type: String,
@@ -33,5 +31,4 @@ const Post = new Schema({
         required: true
     }
 });
-
-mongoose.model("posts", Post); // Criar o modelo "posts" com base no esquema acima
+mongoose.model("posts", Post);

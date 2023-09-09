@@ -6,66 +6,49 @@ const mongoose = require("mongoose");
 require("../models/post");
 const Posts = mongoose.model("posts");
 
-//vamos carregar nosso modelo 
 require("../models/category");
 const Categorys = mongoose.model("categorys");
 
-
-//vamos carregar nosso modelo 
 require("../models/autor");
-const Autors = mongoose.model("autors");
-
+const Authors = mongoose.model("autors");
 
 router.post('/post/add', async (req, res) => {
+    try {
 
-    var erros = [];
-    // if (!req.body.name || typeof req.body.name == undefined || req.body.name == null) {
-    //     erros.push({ texto: "NOME DE CATEGORIA inválido" });
-    // }
-    // if (!req.body.description || typeof req.body.description == undefined || req.body.description == null) {
-    //     erros.push({ texto: "DESCRIÇÃO DE CATEGORIA inválido" });
-    // }
-    // if (!req.body.slug || typeof req.body.slug == undefined || req.body.slug == null) {
-    //     erros.push({ texto: "SLUG inválida" });
-    // }
-    if (erros.length > 0) {
-        res.render("/create_post", { erros: erros });
-    } else {
+        // Verifique se a categoria e o autor existem no banco de dados
+        var categoryDoc = Categorys();
+        categoryDoc = await Categorys.findById(req.body.category);
+        
+        var authorDoc = Authors();
+        authorDoc = await Authors.findById(req.body.author);
 
-        const categoryId = parseInt(req.body.category); // ID da categoria selecionada
-        const authorId = parseInt(req.body.author);     // ID do autor selecionado
-
-        const category = await Categorys.findById(categoryId);
-        if (!category) {
-            return res.status(404).json({ message: 'Categoria não encontrada.' });
+        // Se a categoria ou o autor não forem encontrados, retorne um erro
+        if (!categoryDoc || !authorDoc) {
+            return res.status(400).send('Categoria ou autor não encontrados.');
         }
 
-        // Procurar o autor pelo ID
-        const author = await Autors.findById(authorId);
-        if (!author) {
-            return res.status(404).json({ message: 'Autor não encontrado.' });
-        }
+        var posts = new Posts();
 
-        const newPost = {
-            title: req.body.title,
-            textPost: req.body.textPost,
-            image: req.body.image,
-            date: req.body.date,
-            category: category,
-            author: author
-        };
+        posts.title = req.body.title;
+        posts.textPost = req.body.textPost;
+        posts.image = req.body.image;
+        posts.date =  req.body.date;
+        posts.category =  categoryDoc;
+        posts.author =  authorDoc;
 
-        new Posts(newPost).save().then(() => {
-            req.flash("success_msg", "Post criado com sucesso");
+
+        posts.save().then(() => {
             res.redirect("/list_post");
         }).catch((erro) => {
-            req.flash("error_msg", "Houve um erro ao cadastrar Post");
             res.send('Houve um erro: ' + erro);
         });
+
+    } catch (error) {
+        // Trate os erros adequadamente
+        console.error('Erro ao criar o post:', error);
+        res.status(500).send('Erro ao criar o post.');
     }
 });
-
-
 
 /*______ Fim das rotas das tarefas ___________ */
 module.exports = router;

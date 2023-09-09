@@ -9,7 +9,7 @@ const admin = require("./controllers/adminController");
 const rota_login =require('./controllers/loginController');
 const rota_category =require('./controllers/categoryController');
 const rota_autor =require('./controllers/autorController');
-const rota_post =require('./controllers/postController');
+const rota_post = require('./controllers/postController');
 
 
 //Módulo padrão do node para manipular diretórios e pastas

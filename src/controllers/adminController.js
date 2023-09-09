@@ -13,7 +13,7 @@ const Autors = mongoose.model("autors");
 
 //vamos carregar nosso modelo 
 require("../models/post");
-const Posts = mongoose.model("autors");
+const Posts = mongoose.model("posts");
 
 
 router.get("/", (req, res) => {
