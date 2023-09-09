@@ -2,6 +2,8 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
 const bodyParser = require("body-parser");
+const cors = require('cors');
+
 const app = express();
 
 
@@ -23,6 +25,9 @@ const flash = require("connect-flash");
 //Configurações
 
 
+
+
+
 //Session
 app.use(session({
     secret: "cursodenode",
@@ -41,6 +46,9 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// // Configuração básica do CORS para permitir todas as origens
+app.use(cors());
+
 // Handlebars
 app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
@@ -57,6 +65,7 @@ mongoose.connect("mongodb://localhost/blogapp").then(() => {
 app.use('/bootstrapStyle', express.static('public/bootstrap/css'));
 app.use('/bootstrapScript', express.static('public/bootstrap/js'));
 app.use('/bootstrapIcons', express.static('public/bootstrap/icons/font'));
+
 app.use('/style', express.static('public/css'));
 app.use('/script', express.static('public/js'));
 

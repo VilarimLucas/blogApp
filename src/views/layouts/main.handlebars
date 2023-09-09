@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
+  <meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+
+
   <title>BlogApp</title>
 
 
@@ -20,6 +26,7 @@
 
   <!-- Favicon  -->
   <link rel="icon" href="/images/core-img/favicon.ico">
+
   {{#if dashboard}}
 
   <!-- themify-icons line icon -->
@@ -36,9 +43,10 @@
   <script type="text/javascript" src="/script/jsDashboard/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="/script/jsDashboard/jquery-ui/jquery-ui.min.js"></script>
   <script type="text/javascript" src="/script/jsDashboard/popper.js/popper.min.js"></script>
-  <script type="text/javascript" src="/script/jsDashboard/bootstrap/js/bootstrap.min.js"></script>
   <!-- jquery slimscroll js -->
   <script type="text/javascript" src="/script/jsDashboard/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+
   <!-- modernizr js -->
   <script type="text/javascript" src="/script/jsDashboard/modernizr/modernizr.js"></script>
   <!-- am chart -->
@@ -57,26 +65,24 @@
   <script src="/script/jsDashboard/jquery.mCustomScrollbar.concat.min.js"></script>
 
   {{else}}
+
   <!-- Core Style CSS -->
-  <link rel="stylesheet" href="/style/core-style.css">
-  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="/style/blogStyle/core-style.css">
+  <link rel="stylesheet" href="/style/blogStyle/style.css">
 
   <!-- Responsive CSS -->
-  <link href="/style/responsive.css" rel="stylesheet">
+  <link href="/style/blogStyle/responsive.css" rel="stylesheet">
 
-
-  <!-- jQuery (Necessary for All JavaScript Plugins) -->
-  <script src="/script/jquery/jquery-2.2.4.min.js"></script>
-  <!-- Popper js -->
-  <script src="/script/popper.min.js"></script>
-  <!-- Bootstrap js -->
-  <script src="/script/bootstrap.min.js"></script>
-  <!-- Plugins js -->
-  <script src="/script/plugins.js"></script>
-  <!-- Active js -->
-  <script src="/script/active.js"></script>
-  <script src="/script/script.js"></script>
-
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="/script/blogScript/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/script/blogScript/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/script/blogScript/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/script/blogScript/plugins.js"></script>
+    <!-- Active js -->
+    <script src="/script/blogScript/active.js"></script>
 
 
   {{/if}}
